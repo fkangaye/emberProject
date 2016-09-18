@@ -16,7 +16,16 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+    contentSecurityPolicy: {
+    'default-src': "'self' ",
+    'script-src': "'self' ",
+    'font-src': "'self' ",
+    'connect-src': "'self' https://api.flickr.com", //Allow JSON requests to the flickr api
+    'img-src': "'self' http: https: data:", //Allow images from any http/https
+    'style-src': "'self' ",
+    'media-src': "'self' "
+  }
   };
 
   if (environment === 'development') {
@@ -45,3 +54,6 @@ module.exports = function(environment) {
 
   return ENV;
 };
+
+
+
